@@ -1,0 +1,9 @@
+схема:
+	вывод 2-х спойлеров:
+		1: последняя добавленная запись+возможность "проверки".
+		2: все записи.
+=================
+получение данных:
+	по дате(?)	selecl * from tableOtdel where date=date??
+	по Отделу	selecl * from tableOtdel
+	за Дата получить все планы по Отделу	select * from tableOtdel where date=date?

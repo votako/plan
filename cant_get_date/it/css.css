@@ -1,0 +1,84 @@
+.main{
+/*   border: 4px double black; /* Параметры границы */ */
+  padding: 10px; 	/*отступ от текста*/
+/*   border-style: inset; /*стиль рамки*/ */
+  width: 95%;
+  height: 100%;  
+}
+
+.head{
+  border: 4px double black; /* Параметры границы */
+  padding: 10px;
+  border-style: outset;
+}
+
+.hight{
+  float: left;
+  height: 90%;
+  width: 23%;
+/*   border: 4px double black; /* Параметры границы */ */
+  padding: 10px; 	/*отступ от текста*/
+/*   border-style: inset; */
+}
+
+	.hightIn{
+	  border: 4px double black; /* Параметры границы */
+/* 	  padding: 10px; */
+	  border-style: outset;
+	  height: 25%;
+	  overflow-x:hidden;
+	}
+	
+	.hightInFooter{
+	  border: 4px double black; /* Параметры границы */
+	  padding: 10px;
+	  border-style: outset;
+	}
+
+.middle{
+  float: left;
+  height: 90%;
+  width: 23%;
+/*   border: 4px double black; /* Параметры границы */ */
+  padding: 10px; 	/*отступ от текста*/
+/*   border-style: inset; */
+}
+
+	.middleIn{
+	  border: 4px double black; /* Параметры границы */
+/* 	  padding: 10px; */
+	  border-style: outset;
+	  height: 25%;
+	}
+
+.low{
+  float: left;
+  height: 90%;
+  width: 23%;
+/*   border: 4px double black; /* Параметры границы */ */
+  padding: 10px; 	/*отступ от текста*/
+/*   border-style: inset; */
+}
+
+	.lowIn{
+	  border: 4px double black; /* Параметры границы */
+/* 	  padding: 10px; */
+	  border-style: outset;
+	  height: 25%;
+	}
+
+.other{
+  float: left;
+  height: 90%;
+  width: 23%;
+/*   border: 4px double black; /* Параметры границы */ */
+  padding: 10px; 	/*отступ от текста*/
+/*   border-style: inset; */
+}
+
+	.otherIn{
+	  border: 4px double black; /* Параметры границы */
+/* 	  padding: 10px; */
+	  border-style: outset;
+	  height: 25%;
+	}
