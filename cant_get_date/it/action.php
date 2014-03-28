@@ -18,6 +18,7 @@ $pwd = $_POST['pwd'];
 if($pwd == 1){
 	// дата(сегодня)
 	$date = $_POST['date'];
+	$month = $_POST[''];
 	// значения из формы ввода планов.
 	$hightIn1 = $_POST['hightIn1'];
 	$hightIn2 = $_POST['hightIn2'];

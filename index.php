@@ -37,7 +37,7 @@ $getAllMonthCheck1 = 'getAllMonthCheck1';
 		<option value="12">12
 	</select>
 	<input value="all on month check = 0" type="submit">
-	
+		<br>	
 	<select name="monthCheck1">
                 <option value="01" selected>01
                 <option value="02">02
