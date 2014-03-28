@@ -23,7 +23,34 @@ mysql_query('SET NAMES utf8');
 $print = mysql_query("SELECT DISTINCT date, month, year FROM $ito ORDER BY date DESC");
 while($row = mysql_fetch_array($print)){
 	$month = $row['month'];
-	echo $db_allDate = $row['date'].".".$row['month'].".".$row['year'].".<br>";
+	$date = $row['date'];
+// 	echo $db_allDate = $row['date'].".".$row['month'].".".$row['year'].".<br>";
 }
+// получаем самую последнюю запись?
+echo $date;
 //$getData('ito', $db_date);
+?>
+<form method="post" action="index.php">
+	<select name="month">
+		<option value="01" selected>01
+		<option value="02">02
+		<option value="03">03
+		<option value="04">04
+		<option value="05">05
+		<option value="06">06
+		<option value="07">07
+		<option value="08">08
+		<option value="09">09
+		<option value="10">10
+		<option value="11">11
+		<option value="12">12
+	</select>
+	<input value="Добавить запись" type="submit">
+</form>
+<?
+$selectMonth = $_POST['month'];
+$getMonth = mysql_query("select * from ito where month = '$selectMonth'");
+while($raw = mysql_fetch_array($getMonth)){
+	echo $raw['higth'];
+}
 ?>

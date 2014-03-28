@@ -44,7 +44,10 @@ mysql_query('SET NAMES utf8');
 
 			<div class=main>
 					<div class=head>
-						Внутренний журнал обработки поступающих указаний <textarea name="date" cols="41" rows="1"></textarea>
+						Внутренний журнал обработки поступающих указаний 
+						<textarea name="date" cols="11" rows="1">с-по</textarea>
+						<textarea name="month" cols="11" rows="1">месяц</textarea>
+						<textarea name="year" cols="11" rows="1">год</textarea>
 						<input name="pwd" value="pwd">
 						<input value="Добавить запись" type="submit">
 					</div>			

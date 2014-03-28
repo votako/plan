@@ -33,7 +33,7 @@ function insertData(){
 							<option value="11">11
 							<option value="12">12
 						</select>
-						<select name="year">
+						<select size="2" multiple name="year">
 							<option selected value="2014">2014</option>
 							<option value="2015">2015</option>
 							<option value="2016">2016</option>

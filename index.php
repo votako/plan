@@ -1,10 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="cssGet.css">
 <?
-// подключаем файл с функциями
-include 'funct.php';
-$getData = 'getFromDb';
-
 // данные для подключения к БД
 $hostname = "localhost";
 $username = "root";
@@ -19,11 +15,52 @@ mysql_select_db($dbName) or die(mysql_error());
 mysql_query('SET NAMES utf8');
 // подключено
 
-// получаем даты из БД(без дублей(DISTINCT), отсортированное по дате от последней)
-$print = mysql_query("SELECT DISTINCT date, month, year FROM $ito ORDER BY date DESC");
-while($row = mysql_fetch_array($print)){
-	$month = $row['month'];
-	echo $db_allDate = $row['date'].".".$row['month'].".".$row['year'].".<br>";
-}
-//$getData('ito', $db_date);
+//get funct
+include 'funct.php';
+$getAllMonthCheck0 = 'getAllMonthCheck0';
+$getAllMonthCheck1 = 'getAllMonthCheck1';
+?>
+<!--get month--!>
+<form method="post" action="index.php">
+	<select name="monthCheck0">
+		<option value="01" selected>01
+		<option value="02">02
+		<option value="03">03
+		<option value="04">04
+		<option value="05">05
+		<option value="06">06
+		<option value="07">07
+		<option value="08">08
+		<option value="09">09
+		<option value="10">10
+		<option value="11">11
+		<option value="12">12
+	</select>
+	<input value="all on month check = 0" type="submit">
+	
+	<select name="monthCheck1">
+                <option value="01" selected>01
+                <option value="02">02
+                <option value="03">03
+                <option value="04">04
+                <option value="05">05
+                <option value="06">06
+                <option value="07">07
+                <option value="08">08
+                <option value="09">09
+                <option value="10">10
+                <option value="11">11
+                <option value="12">12
+        </select>
+        <input value="all on month check = 1" type="submit">
+
+</form>
+<?
+//get data from form
+//do not worry, in 1-t print: error. how fix?
+$monthCheck0 = $_POST['monthCheck0'];
+$monthCheck1 = $_POST['monthCheck1'];
+//get all the data from the month, shorted by date form low
+$getAllMonthCheck0($ito, $monthCheck0); 
+$getAllMonthCheck1($ito, $monthCheck1);
 ?>

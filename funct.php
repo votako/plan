@@ -1,46 +1,30 @@
 <?
-function getFromDb($tableName = '', $date = '')
-{
-
-	//получаем данные из БД и красиво пишем их на экране(с возможностью редактировать)
-	//добавить сортировку ТОЛЬКО не проверенных планов(check = 0)   AND `check` = 0
-	$print = mysql_query("SELECT * FROM $tableName WHERE date = '$date'");
-	while($row = mysql_fetch_array($print)){
-		// 	переменные в нормальном виде существует только внутри цикла while(????)
-		// variable live only in WHILE. outside get the last one data of DB!!!
-		$db_hight = $row['hight'];
-		$db_middle = $row['middle'];
-		$db_low = $row['low'];
-		$db_other = $row['other'];
-		$db_date = $row['date'];
-		// создаем таблицу вывода(с формой ввода данных в которую идут значения из планов)
-		?> 
-		<div class='main'>
-			<a><?//echo $db_date?></a>
-			<div class='hight'>
-				<div class='hightIn'>
-						<textarea name='hightIn' cols='41' rows='11'><?echo $db_hight?></textarea>
-				</div>
-			</div>
-			<div class='middle'>
-				<div class='middleIn'>
-					<textarea name='middleIn' cols='41' rows='11'><? echo $db_middle?></textarea>
-				</div>
-			</div>
-			<div class='low'>
-				<div class='lowIn'>
-					<textarea name='lowIn' cols='41' rows='11'><? echo $db_low?></textarea>
-				</div>
-			</div>
-			<div class='other'>
-				<div class='otherIn'>
-					<textarea name='otherIn' cols='41' rows='11'><?echo $db_other?></textarea>
-				</div>
-			</div>
-		</div>
-		<?
+//get all the data from the month, shorted by date form low
+// !! ONLY ckeck  == 0!!
+function getAllMonthCheck0($tableName = '', $month = ''){
+	$get = mysql_query("select * from $tableName where month = '$month' and `check` = 0 order by date DESC");
+	while($row = mysql_fetch_array($get)){
+		$date = $row['date'];
+        	$month = $row['month'];
+        	$hight = $row['hight'];
+        	$middle = $row['middle'];
+        	$low = $row['low'];
+        	$other = $row['other'];
+		echo $date.".".$month."<br>".$hight.".".$middle.".".$low.".".$other."<br>";
 	}
-	// echo "<div class='head'>".$db_date."</div>";
-	// echo $db_date;
+}
+//get all the data from the month, shorted by date form low
+// !! ONLY ckeck  == 0!!
+function getAllMonthCheck1($tableName = '', $month = ''){
+	$get = mysql_query("select * from $tableName where month = '$month' and `check` = 1 order by date DESC");
+	while($row = mysql_fetch_array($get)){
+		$date = $row['date'];
+                $month = $row['month'];
+                $hight = $row['hight'];
+                $middle = $row['middle'];
+                $low = $row['low'];
+                $other = $row['other'];
+                echo $date.".".$month."<br>".$hight.".".$middle.".".$low.".".$other."<br>";
+	}
 }
 ?>

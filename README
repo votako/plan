@@ -1,2 +1,7 @@
 insert plan, date.
 check+add plan.
+
+28.03
+funct:
+	get data on month+check=0\1
+	if print all date != current list

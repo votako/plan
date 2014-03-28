@@ -44,7 +44,10 @@ mysql_query('SET NAMES utf8');
 
 			<div class=main>
 					<div class=head>
-						Внутренний журнал обработки поступающих указаний <textarea name="date" cols="41" rows="1"></textarea>
+						Внутренний журнал обработки поступающих указаний 
+						<textarea name="date" cols="11" rows="1">с-по</textarea>
+						<textarea name="month" cols="11" rows="1">месяц</textarea>
+						<textarea name="year" cols="11" rows="1">год</textarea>
 						<input name="pwd" value="pwd">
 						<input value="Добавить запись" type="submit">
 					</div>			
@@ -169,7 +172,7 @@ mysql_query('SET NAMES utf8');
 					?>
 					<div class="spoil">
 						<!-- 	 открытие спойтера2 -->
-						<div class="smallfont"><input type="button" value="<?echo $db_date.$db_month;?>" class="input-button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = '<?echo $db_date.$db_month;?>'; }"/>
+						<div class="smallfont"><input type="button" value="<?echo $db_date.".".$db_month;?>" class="input-button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = '<?echo $db_date.".".$db_month;?>'; }"/>
 						</div><!-- 	 закрытие спойтера2^-->
 						
 						<div class="alt2"><!--  	открытие спойтера3-->
