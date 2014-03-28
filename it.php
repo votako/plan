@@ -1,8 +1,62 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="cssGet.css">
 <?
-function insertData(){
-	?>
-	<form method="post" action="action.php">
-	<!-- 	 открытие спойтера1 -->
+// данные для подключения к БД
+$hostname = "localhost";
+$username = "root";
+$password = "NIAP637";
+$dbName = "plan";
+$ito = "ito";
+
+//подключение к SQL и DB
+$connect = mysql_connect($hostname, $username, $password) or die(mysql_error());
+mysql_select_db($dbName) or die(mysql_error());
+//для записи в БД русских символов и корректного их отображения.
+mysql_query('SET NAMES utf8');
+// подключено
+
+//get funct
+include 'funct/funct.php';
+$getAllMonthCheck0 = 'getAllMonthCheck0';
+$getAllMonthCheck1 = 'getAllMonthCheck1';
+?>
+<!--get month--!>
+	проверенные планы за
+        <select name="monthCheck1">
+                <option value="01" selected>01
+                <option value="02">02
+                <option value="03">03
+                <option value="04">04
+                <option value="05">05
+                <option value="06">06
+                <option value="07">07
+                <option value="08">08
+                <option value="09">09
+                <option value="10">10
+                <option value="11">11
+                <option value="12">12
+        </select>месяц
+        <input value="получить" type="submit">
+
+</form>
+<?
+//get data from form
+//do not worry, in 1-t print: error. how fix?
+$monthCheck1 = $_POST['monthCheck1'];
+//get all the data from the month, shorted by date form low
+$getAllMonthCheck1($ito, $monthCheck1);
+
+?>
+<form method="post" action="actionIt.php">
+<html>
+	<head>
+<!-- 	подключение css и установка кодировки. в базе данных русские символы отображаются плохо -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<title>Планы</title>
+	</head>
+	<body>
+<!-- 	 открытие спойтера1 -->
 	<div class="spoil">
 	<!-- 	 открытие спойтера2 -->
 		<div class="smallfont">
@@ -18,26 +72,9 @@ function insertData(){
 			<div class=main>
 					<div class=head>
 						Внутренний журнал обработки поступающих указаний 
-						<textarea name="date" rows="1">с-по</textarea>
-						<select name="month">
-							<option value="01">01
-							<option value="02">02
-							<option value="03">03
-							<option value="04">04
-							<option value="05">05
-							<option value="06">06
-							<option value="07">07
-							<option value="08">08
-							<option value="09">09
-							<option value="10">10
-							<option value="11">11
-							<option value="12">12
-						</select>
-						<select name="year">
-							<option selected value="2014">2014</option>
-							<option value="2015">2015</option>
-							<option value="2016">2016</option>
-						</select>
+						<textarea name="date" cols="11" rows="1">с-по</textarea>
+						<textarea name="month" cols="11" rows="1">месяц</textarea>
+						<textarea name="year" cols="11" rows="1">год</textarea>
 						<input name="pwd" value="pwd">
 						<input value="Добавить запись" type="submit">
 					</div>			
@@ -138,51 +175,8 @@ function insertData(){
 <!-- 	 закрытие спойтера3-->
 	</div>
 <!-- 	 закрытие спойтера1(spoil)-->
-	</form>
-	<?
-}
-function getFromDb($tableName = '', $date = '')
-{
+	
+</body>
+</html>
+</form>
 
-	//получаем данные из БД и красиво пишем их на экране(с возможностью редактировать)
-	//добавить сортировку ТОЛЬКО не проверенных планов(check = 0)   AND `check` = 0
-	$print = mysql_query("SELECT * FROM $tableName WHERE date = '$date'");
-	while($row = mysql_fetch_array($print)){
-		// 	переменные в нормальном виде существует только внутри цикла while(????)
-		// variable live only in WHILE. outside get the last one data of DB!!!
-		$db_hight = $row['hight'];
-		$db_middle = $row['middle'];
-		$db_low = $row['low'];
-		$db_other = $row['other'];
-		$db_date = $row['date'];
-		// создаем таблицу вывода(с формой ввода данных в которую идут значения из планов)
-		?> 
-		<div class='main'>
-			<a><?//echo $db_date?></a>
-			<div class='hight'>
-				<div class='hightIn'>
-						<textarea name='hightIn' cols='41' rows='11'><?echo $db_hight?></textarea>
-				</div>
-			</div>
-			<div class='middle'>
-				<div class='middleIn'>
-					<textarea name='middleIn' cols='41' rows='11'><? echo $db_middle?></textarea>
-				</div>
-			</div>
-			<div class='low'>
-				<div class='lowIn'>
-					<textarea name='lowIn' cols='41' rows='11'><? echo $db_low?></textarea>
-				</div>
-			</div>
-			<div class='other'>
-				<div class='otherIn'>
-					<textarea name='otherIn' cols='41' rows='11'><?echo $db_other?></textarea>
-				</div>
-			</div>
-		</div>
-		<?
-	}
-	// echo "<div class='head'>".$db_date."</div>";
-	// echo $db_date;
-}
-?>

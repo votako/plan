@@ -42,13 +42,14 @@ if($pwd == 1){
 	$otherIn4 = $_POST['otherIn4'];
 
 	// добавления в БД значений из формы ввода данных с датой.
-	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn1', '$middleIn1', '$lowIn1', '$otherIn1', '$date','$month', '$year')") or die(mysql_error());
-	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn2', '$middleIn2', '$lowIn2', '$otherIn2', '$date','$month', '$year')") or die(mysql_error());
-	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn3', '$middleIn3', '$lowIn3', '$otherIn3', '$date','$month', '$year')") or die(mysql_error());
-	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn4', '$middleIn4', '$lowIn4', '$otherIn4', '$date','$month', '$year')") or die(mysql_error());
-
+	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn1', '$middleIn1', '$lowIn1', '$otherIn1', '$date', '$month', '$year')") or die(mysql_error());
+	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn2', '$middleIn2', '$lowIn2', '$otherIn2', '$date', '$month', '$year')") or die(mysql_error());
+	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn3', '$middleIn3', '$lowIn3', '$otherIn3', '$date', '$month', '$year')") or die(mysql_error());
+	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn4', '$middleIn4', '$lowIn4', '$otherIn4', '$date', '$month', '$year')") or die(mysql_error());
+	
+	echo "<a href='it.php'>назад</a><br>";
 	// вывод на экран добавлений согласно сегодняшней дате
-	$print = mysql_query("SELECT * FROM $tableName WHERE month='$month'");
+	$print = mysql_query("SELECT * FROM $tableName WHERE date='$date'");
 	while($row = mysql_fetch_array($print)){
 	// 	переменные в нормальном виде существует только внутри цикла while(????)
 		$db_hight = $row['hight'];
@@ -56,7 +57,7 @@ if($pwd == 1){
 		$db_low = $row['low'];
 		$db_other = $row['other'];
 		$db_date = $row['date'];
-		echo $db_hight." | ".$db_middle." | ".$db_low." | ".$db_other." | ".$db_date." | ".$month." | ".$year."</br><hr>";
+		echo $db_hight." | ".$db_middle." | ".$db_low." | ".$db_other." | ".$db_date."</br><hr>";
 	}
 }else{echo "пароль(pwd) не верный!";}
 ?>
