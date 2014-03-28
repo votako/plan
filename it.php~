@@ -20,8 +20,7 @@ include 'funct/funct.php';
 $getAllMonthCheck0 = 'getAllMonthCheck0';
 $getAllMonthCheck1 = 'getAllMonthCheck1';
 ?>
-<a href="sh.php">sh</a><br>
-<a href="localhost.php">localhost</a><br>
+<!--get month--!>
 	проверенные планы за
         <select name="monthCheck1">
                 <option value="01" selected>01
@@ -48,6 +47,8 @@ $monthCheck1 = $_POST['monthCheck1'];
 $getAllMonthCheck1($ito, $monthCheck1);
 
 ?>
+<a href="sh.php">sh</a><br>
+<a href="localhost.php">localhost</a><br>
 <form method="post" action="actionIt.php">
 <html>
 	<head>

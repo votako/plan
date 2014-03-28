@@ -20,30 +20,31 @@ include 'funct/funct.php';
 $getAllMonthCheck0 = 'getAllMonthCheck0';
 $getAllMonthCheck1 = 'getAllMonthCheck1';
 ?>
-<!--get month--!>
-	проверенные планы за
-        <select name="monthCheck1">
-                <option value="01" selected>01
-                <option value="02">02
-                <option value="03">03
-                <option value="04">04
-                <option value="05">05
-                <option value="06">06
-                <option value="07">07
-                <option value="08">08
-                <option value="09">09
-                <option value="10">10
-                <option value="11">11
-                <option value="12">12
-        </select>месяц
-        <input value="получить" type="submit">
-
+<a href="it.php">it</a><br>
+<a href="localhost.php">localhost</a><br>
+<form method="post" action="sh.php">
+	НЕ проверенные планы за
+	<select name="monthCheck0">
+		<option value="01" selected>01
+		<option value="02">02
+		<option value="03">03
+		<option value="04">04
+		<option value="05">05
+		<option value="06">06
+		<option value="07">07
+		<option value="08">08
+		<option value="09">09
+		<option value="10">10
+		<option value="11">11
+		<option value="12">12
+	</select>месяц
+<input value="получить" type="submit">
 </form>
 <?
 //get data from form
 //do not worry, in 1-t print: error. how fix?
-$monthCheck1 = $_POST['monthCheck1'];
+$monthCheck0 = $_POST['monthCheck0'];
 //get all the data from the month, shorted by date form low
-$getAllMonthCheck1($ito, $monthCheck1);
+$getAllMonthCheck0($ito, $monthCheck0);
 
 ?>
