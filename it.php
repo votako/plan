@@ -17,11 +17,11 @@ mysql_query('SET NAMES utf8');
 
 //get funct
 include 'funct/funct.php';
-$getAllMonthCheck0 = 'getAllMonthCheck0';
 $getAllMonthCheck1 = 'getAllMonthCheck1';
 ?>
-<a href="sh.php">sh</a><br>
-<a href="localhost.php">localhost</a><br>
+<a href="done/sh.php">sh</a><br>
+<a href="index.php">localhost</a><br>
+<form method="post" action="it.php">
 	проверенные планы за
         <select name="monthCheck1">
                 <option value="01" selected>01
@@ -43,7 +43,7 @@ $getAllMonthCheck1 = 'getAllMonthCheck1';
 <?
 //get data from form
 //do not worry, in 1-t print: error. how fix?
-$monthCheck1 = $_POST['monthCheck1'];
+$monthCheck1 = isset($_POST['monthCheck1']);
 //get all the data from the month, shorted by date form low
 $getAllMonthCheck1($ito, $monthCheck1);
 
