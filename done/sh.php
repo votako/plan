@@ -45,7 +45,7 @@ $getAllMonthCheck0 = 'getAllMonthCheck0';
 <?
 //get data from form
 //do not worry, in 1-t print: error. how fix?
-$monthCheck0 = $_POST['monthCheck0'];
+@$monthCheck0 = $_POST['monthCheck0'];
 //get all the data from the month, shorted by date form low
 $get = mysql_query("select * from $ito where month = '$monthCheck0' and `check` = 0 order by date DESC");
 while($row = mysql_fetch_array($get)){
@@ -82,8 +82,8 @@ while($row = mysql_fetch_array($get)){
 <?}?>
 	
 <?
-$check = $_POST['check'];
-$ShCommit = $_POST['ShCommit'];
+@$check = $_POST['check'];
+@$ShCommit = $_POST['ShCommit'];
 if($check == 1){
 // 	почему он не берет дату?!?!?
 // 	нет update по where date = $date

@@ -49,6 +49,7 @@
 /* 	  padding: 10px; */
 	  border-style: outset;
 	  /*height: 24%;*/
+	  overflow-x:hidden;
 	}
 
 .low{
@@ -65,6 +66,7 @@
 /* 	  padding: 10px; */
 	  border-style: outset;
 	  /*height: 24%;*/
+	  overflow-x:hidden;
 	}
 
 .other{
@@ -81,4 +83,5 @@
 /* 	  padding: 10px; */
 	  border-style: outset;
 	  /*height: 24%;*/
+	  overflow-x:hidden;
 	}

@@ -71,8 +71,8 @@ if($setCheck == 1){
 <?
 //get data from form
 //do not worry, in 1-t print: error. how fix?
-@$monthCheck0 = $_POST['monthCheck0'];
-@$monthCheck1 = $_POST['monthCheck1'];
+$monthCheck0 = $_POST['monthCheck0'];
+$monthCheck1 = $_POST['monthCheck1'];
 //get all the data from the month, shorted by date form low
 $getAllMonthCheck0($ito, $monthCheck0); 
 $getAllMonthCheck1($ito, $monthCheck1);

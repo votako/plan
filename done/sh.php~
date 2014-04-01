@@ -82,8 +82,8 @@ while($row = mysql_fetch_array($get)){
 <?}?>
 	
 <?
-$check = $_POST['check'];
-$ShCommit = $_POST['ShCommit'];
+@$check = $_POST['check'];
+@$ShCommit = $_POST['ShCommit'];
 if($check == 1){
 // 	почему он не берет дату?!?!?
 // 	нет update по where date = $date
