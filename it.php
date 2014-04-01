@@ -43,7 +43,7 @@ $getAllMonthCheck1 = 'getAllMonthCheck1';
 <?
 //get data from form
 //do not worry, in 1-t print: error. how fix?
-$monthCheck1 = isset($_POST['monthCheck1']);
+$monthCheck1 = $_POST['monthCheck1'];
 //get all the data from the month, shorted by date form low
 $getAllMonthCheck1($ito, $monthCheck1);
 

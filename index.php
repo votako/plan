@@ -20,6 +20,16 @@ include 'funct/funct.php';
 $getAllMonthCheck0 = 'getAllMonthCheck0';
 $getAllMonthCheck1 = 'getAllMonthCheck1';
 ?>
+<form method="post" action="index.php">
+	<input type="checkbox" name="setCh" value="1">
+	<input value="set check=0" type="submit"><hr>
+</form>
+<?
+$setCheck = isset($_POST['setCh']);
+if($setCheck == 1){
+	mysql_query("update ito set `check` = 0 where `check` = 1");
+}
+?>
 <a href="it.php">it</a><br>
 <a href="done/sh.php">sh</a>
 <!-- get all month -->
@@ -61,8 +71,8 @@ $getAllMonthCheck1 = 'getAllMonthCheck1';
 <?
 //get data from form
 //do not worry, in 1-t print: error. how fix?
-$monthCheck0 = isset($_POST['monthCheck0']);
-$monthCheck1 = isset($_POST['monthCheck1']);
+$monthCheck0 = $_POST['monthCheck0'];
+$monthCheck1 = $_POST['monthCheck1'];
 //get all the data from the month, shorted by date form low
 $getAllMonthCheck0($ito, $monthCheck0); 
 $getAllMonthCheck1($ito, $monthCheck1);
