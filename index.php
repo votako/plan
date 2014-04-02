@@ -22,7 +22,7 @@ $getAllMonthCheck1 = 'getAllMonthCheck1';
 ?>
 <form method="post" action="index.php">
 	<input type="checkbox" name="setCh" value="1">
-	<input value="set check=0" type="submit"><hr>
+	<input value="set ALL check=0" type="submit"><hr>
 </form>
 <?
 $setCheck = isset($_POST['setCh']);

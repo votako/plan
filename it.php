@@ -9,7 +9,7 @@ $dbName = "plan";
 $ito = "ito";
 
 //подключение к SQL и DB
-$connect = mysql_connect($hostname, $username, $password) or die(mysql_error());
+mysql_connect($hostname, $username, $password) or die(mysql_error());
 mysql_select_db($dbName) or die(mysql_error());
 //для записи в БД русских символов и корректного их отображения.
 mysql_query('SET NAMES utf8');
@@ -17,35 +17,50 @@ mysql_query('SET NAMES utf8');
 
 //get funct
 include 'funct/funct.php';
-$getAllMonthCheck1 = 'getAllMonthCheck1';
+$getDateCheck = 'getDateCheck';
 ?>
+
 <a href="done/sh.php">sh</a><br>
 <a href="index.php">localhost</a><br>
-<form method="post" action="it.php">
-	проверенные планы за
-        <select name="monthCheck1">
-                <option value="01" selected>01
-                <option value="02">02
-                <option value="03">03
-                <option value="04">04
-                <option value="05">05
-                <option value="06">06
-                <option value="07">07
-                <option value="08">08
-                <option value="09">09
-                <option value="10">10
-                <option value="11">11
-                <option value="12">12
-        </select>месяц
-        <input value="получить" type="submit">
 
+<form method="post" action="it.php">
+	<select name="getDate"><?
+		$print = mysql_query("SELECT DISTINCT date FROM $ito ORDER BY date DESC LIMIT 6");
+		while($row = mysql_fetch_array($print)){
+			$date = $row['date'];
+			?><option value="<?echo $date?>"><?echo $date;
+		}
+		?>
+	</select>
+	<select name="getMonth">
+		<option value="01" selected>01
+		<option value="02">02
+		<option value="03">03
+		<option value="04">04
+		<option value="05">05
+		<option value="06">06
+		<option value="07">07
+		<option value="08">08
+		<option value="09">09
+		<option value="10">10
+		<option value="11">11
+		<option value="12">12
+	</select>
+	<select name="getCheck">
+		<option value="0" selected>0
+		<option value="1">1
+	</select>
+	<input value="получить" type="submit">
 </form>
+
 <?
 //get data from form
-//do not worry, in 1-t print: error. how fix?
-@$monthCheck1 = $_POST['monthCheck1'];
-//get all the data from the month, shorted by date form low
-$getAllMonthCheck1($ito, $monthCheck1);
+//do not worry, in 1-t print: error. fix = @(display error==0)
+@$getDate = $_POST['getDate'];
+@$getMonth = $_POST['getMonth'];
+@$getCheck = $_POST['getCheck'];
+//get all the data from the month and date, shorted by date form low
+$getDateCheck($ito, $getMonth, $getDate, $getCheck);
 
 ?>
 <form method="post" action="actionIt.php">
@@ -74,8 +89,26 @@ $getAllMonthCheck1($ito, $monthCheck1);
 					<div class=head>
 						Внутренний журнал обработки поступающих указаний 
 						<textarea name="date" cols="11" rows="1">с-по</textarea>
-						<textarea name="month" cols="11" rows="1">месяц</textarea>
-						<textarea name="year" cols="11" rows="1">год</textarea>
+						<select name="month">
+							<option value="1">1
+							<option value="2">2
+							<option value="3">3
+							<option value="4">4
+							<option value="5" selected>5
+							<option value="6">6
+							<option value="7">7
+							<option value="8">8
+							<option value="9">9
+							<option value="10">10
+							<option value="11">11
+							<option value="12">12
+						</select>
+						
+						<select name="year">
+							<option value="2014">2014
+							<option value="2015">2015
+						</select>
+						
 						<input name="pwd" value="pwd">
 						<input value="Добавить запись" type="submit">
 					</div>			
