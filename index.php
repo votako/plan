@@ -1,3 +1,6 @@
+<head>
+ <link rel="shortcut icon" href="favicon.ico" type="image/png">
+</head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="cssGet.css">
 <?

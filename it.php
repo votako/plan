@@ -24,14 +24,6 @@ $getDateCheck = 'getDateCheck';
 <a href="index.php">localhost</a><br>
 
 <form method="post" action="it.php">
-	<select name="getDate"><?
-		$print = mysql_query("SELECT DISTINCT date FROM $ito ORDER BY date DESC LIMIT 6");
-		while($row = mysql_fetch_array($print)){
-			$date = $row['date'];
-			?><option value="<?echo $date?>"><?echo $date;
-		}
-		?>
-	</select>
 	<select name="getMonth">
 		<option value="01" selected>01
 		<option value="02">02
@@ -46,6 +38,18 @@ $getDateCheck = 'getDateCheck';
 		<option value="11">11
 		<option value="12">12
 	</select>
+	
+<?@$getMonth = $_POST['getMonth'];?>
+
+	<select name="getDate"><?
+		$print = mysql_query("SELECT DISTINCT date FROM $ito where month = '$getMonth' ORDER BY date DESC LIMIT 6");
+		while($row = mysql_fetch_array($print)){
+			$date = $row['date'];
+			?><option value="<?echo $date?>" selected><?echo $date;
+		}
+		?>
+	</select>
+	
 	<select name="getCheck">
 		<option value="0" selected>0
 		<option value="1">1
@@ -57,7 +61,6 @@ $getDateCheck = 'getDateCheck';
 //get data from form
 //do not worry, in 1-t print: error. fix = @(display error==0)
 @$getDate = $_POST['getDate'];
-@$getMonth = $_POST['getMonth'];
 @$getCheck = $_POST['getCheck'];
 //get all the data from the month and date, shorted by date form low
 $getDateCheck($ito, $getMonth, $getDate, $getCheck);

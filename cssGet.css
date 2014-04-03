@@ -51,6 +51,12 @@
 	  /*height: 24%;*/
 	  overflow-x:hidden;
 	}
+	
+	.middleInFooter{
+	  /*border: 4px double black; /* Параметры границы */*/
+	  padding: 10px;
+	  border-style: outset;
+	}
 
 .low{
   float: left;
@@ -68,6 +74,12 @@
 	  /*height: 24%;*/
 	  overflow-x:hidden;
 	}
+	
+	.lowInFooter{
+	  /*border: 4px double black; /* Параметры границы */*/
+	  padding: 10px;
+	  border-style: outset;
+	}
 
 .other{
   float: left;
@@ -84,4 +96,10 @@
 	  border-style: outset;
 	  /*height: 24%;*/
 	  overflow-x:hidden;
+	}
+	
+	.otherInFooter{
+	  /*border: 4px double black; /* Параметры границы */*/
+	  padding: 10px;
+	  border-style: outset;
 	}
