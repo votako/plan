@@ -42,10 +42,10 @@ if($pwd == 1){
 	$otherIn4 = $_POST['otherIn4'];
 
 	// добавления в БД значений из формы ввода данных с датой.
-	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn1', '$middleIn1', '$lowIn1', '$otherIn1', '$date', '$month', '$year')") or die(mysql_error());
-	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn2', '$middleIn2', '$lowIn2', '$otherIn2', '$date', '$month', '$year')") or die(mysql_error());
-	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn3', '$middleIn3', '$lowIn3', '$otherIn3', '$date', '$month', '$year')") or die(mysql_error());
-	mysql_query("INSERT INTO $tableName(hight, middle, low, other, date, month, year) VALUES ('$hightIn4', '$middleIn4', '$lowIn4', '$otherIn4', '$date', '$month', '$year')") or die(mysql_error());
+	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('1', '$hightIn1', '$middleIn1', '$lowIn1', '$otherIn1', '$date', '$month', '$year')") or die(mysql_error());
+	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('2', '$hightIn2', '$middleIn2', '$lowIn2', '$otherIn2', '$date', '$month', '$year')") or die(mysql_error());
+	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('3', '$hightIn3', '$middleIn3', '$lowIn3', '$otherIn3', '$date', '$month', '$year')") or die(mysql_error());
+	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('4', '$hightIn4', '$middleIn4', '$lowIn4', '$otherIn4', '$date', '$month', '$year')") or die(mysql_error());
 	
 	echo "<a href='it.php'>назад</a><br>";
 	// вывод на экран добавлений согласно сегодняшней дате

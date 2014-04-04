@@ -35,6 +35,7 @@ if($setCheck == 1){
 ?>
 <a href="it.php">it</a><br>
 <a href="done/sh.php">sh</a>
+<a href="test.php">test</a>
 <!-- get all month -->
 <form method="post" action="index.php">
 	<select name="monthCheck0">
