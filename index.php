@@ -1,83 +1,57 @@
-<head>
- <link rel="shortcut icon" href="favicon.ico" type="image/png">
-</head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="cssGet.css">
 <?
-// данные для подключения к БД
-$hostname = "localhost";
-$username = "root";
-$password = "NIAP637";
-$dbName = "plan";
-$ito = "ito";
+@$Password = $_REQUEST['password'];
+if ($Password == 'sh'){
+	header("Location: sh/"); 
+}elseif($Password == 'komdir'){
+	header("Location: komdir/"); 
+}elseif($Password == 'pers'){
+	header("Location: pers/"); 
+}elseif($Password == 'rozn'){
+	header("Location: rozn/"); 
+}elseif($Password == 'dos'){
+	header("Location: dos/"); 
+}elseif($Password == 'ahs'){
+	header("Location: ahs/"); 
+}elseif($Password == 'zakup'){
+	header("Location: zakup/"); 
+}elseif($Password == 'it'){
+	header("Location: it/"); 
+}else{ ?>
+<html>
+	<style>
+		body{
+			background-color: #666666;
+		}
+		.main{
+			padding-left: 35%; /* Поле слева */
+			padding-top: 10%; /* Поле сверху */
+		}
+		.inn{
+			padding-top: 5%;
+			text-align: center;
+			width: 400px;
+			height: 100px;
+			border: 1px solid #E5E5E5;
+			border-radius: 5px;
+			box-shadow: 0px 2px 10px -1px rgba(200, 200, 200, 0.698);
+			background: none repeat scroll 0% 0% #FFF;
+		}
+	</style>
 
-//подключение к SQL и DB
-$connect = mysql_connect($hostname, $username, $password) or die(mysql_error());
-mysql_select_db($dbName) or die(mysql_error());
-//для записи в БД русских символов и корректного их отображения.
-mysql_query('SET NAMES utf8');
-// подключено
+	<body>
+		<form name="form" action="index.php">
+			<div class="main">
+				<a href="http://www.topolyok.com.ua"><img src="img/topol.png"></a>
+			<div class="inn">
+				<FONT face="Comic Sans MS">Введите пароль:</FONT>
+				<br><br> 
+				<input type="password" name="password" value="">
+				<input type="submit" name="button" value="OK" />
+			</div>
+			</div>
+		</form>
+	</body>
+</html>
 
-//get funct
-include 'funct/funct.php';
-$getAllMonthCheck0 = 'getAllMonthCheck0';
-$getAllMonthCheck1 = 'getAllMonthCheck1';
-?>
-<form method="post" action="index.php">
-	<input type="checkbox" name="setCh" value="1">
-	<input value="set ALL check=0" type="submit"><hr>
-</form>
-<?
-$setCheck = isset($_POST['setCh']);
-if($setCheck == 1){
-	mysql_query("update ito set `check` = 0 where `check` = 1");
-}
-?>
-<a href="it.php">it</a><br>
-<a href="done/sh.php">sh</a>
-<a href="test.php">test</a>
-<!-- get all month -->
-<form method="post" action="index.php">
-	<select name="monthCheck0">
-		<option value="01" selected>01
-		<option value="02">02
-		<option value="03">03
-		<option value="04">04
-		<option value="05">05
-		<option value="06">06
-		<option value="07">07
-		<option value="08">08
-		<option value="09">09
-		<option value="10">10
-		<option value="11">11
-		<option value="12">12
-	</select>
-	<input value="all on month check = 0" type="submit">
-</form>
-		<br>	
-<form method="post" action="index.php">
-	<select name="monthCheck1">
-		<option value="01" selected>01
-		<option value="02">02
-		<option value="03">03
-		<option value="04">04
-		<option value="05">05
-		<option value="06">06
-		<option value="07">07
-		<option value="08">08
-		<option value="09">09
-		<option value="10">10
-		<option value="11">11
-		<option value="12">12
-	</select>
-	<input value="all on month check = 1" type="submit">
-</form>
-<?
-//get data from form
-//do not worry, in 1-t print: error. how fix?
-@$monthCheck0 = $_POST['monthCheck0'];
-@$monthCheck1 = $_POST['monthCheck1'];
-//get all the data from the month, shorted by date form low
-$getAllMonthCheck0($ito, $monthCheck0); 
-$getAllMonthCheck1($ito, $monthCheck1);
-?>
+<?}?> 
