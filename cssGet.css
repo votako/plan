@@ -1,3 +1,22 @@
+body{
+  background-color: #666666;
+}
+
+.text{
+  font-variant: small-caps;
+  text-align:center;
+  color:white;
+}
+
+.get{
+  width: 88%;
+  padding-top:2%;
+  padding:20px;
+  border: 1px solid #E5E5E5;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px -1px rgba(200, 200, 200, 0.698);
+  background: none repeat scroll 0% 0% #FFF;
+}
 .main{
 /*   border: 4px double black; /* Параметры границы */ */
   padding: 10px; 	/*отступ от текста*/
@@ -7,9 +26,12 @@
 }
 
 .head{
-  border: 4px double black; /* Параметры границы */
+  width: 90%;
+  border: 1px solid #E5E5E5;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px -1px rgba(200, 200, 200, 0.698);
+  background: none repeat scroll 0% 0% #FFF;  
   padding: 10px;
-  border-style: outset;
 }
 
 .hight{
@@ -19,6 +41,7 @@
 /*   border: 4px double black; /* Параметры границы */ */
   padding: 10px; 	/*отступ от текста*/
 /*   border-style: inset; */
+
 }
 
 	.hightIn{
@@ -27,14 +50,9 @@
 	  border-style: outset;
 	  /*height: 24%;*/
 	  overflow-x:hidden;
+	  
 	}
 	
-	.hightInFooter{
-	  /*border: 4px double black; /* Параметры границы */*/
-	  padding: 10px;
-	  border-style: outset;
-	}
-
 .middle{
   float: left;
 /*   height: 90%; */
@@ -52,11 +70,6 @@
 	  overflow-x:hidden;
 	}
 	
-	.middleInFooter{
-	  /*border: 4px double black; /* Параметры границы */*/
-	  padding: 10px;
-	  border-style: outset;
-	}
 
 .low{
   float: left;
@@ -75,12 +88,6 @@
 	  overflow-x:hidden;
 	}
 	
-	.lowInFooter{
-	  /*border: 4px double black; /* Параметры границы */*/
-	  padding: 10px;
-	  border-style: outset;
-	}
-
 .other{
   float: left;
 /*   height: 90%; */
@@ -98,8 +105,8 @@
 	  overflow-x:hidden;
 	}
 	
-	.otherInFooter{
-	  /*border: 4px double black; /* Параметры границы */*/
-	  padding: 10px;
-	  border-style: outset;
-	}
+.footer{
+  /*border: 4px double black; /* Параметры границы */*/
+  padding: 10px;
+  border-style: outset;
+}
