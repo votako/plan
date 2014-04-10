@@ -9,6 +9,7 @@
 <a href="index.php"><img src="topol.png"></a>
 <a href="it.php"><img src="it.png"></a>
 <a href="sh.php"><img src="sh.png"></a>
+<a href="test.php"><img src="test.png"></a>
 <?
 // данные для подключения к БД
 $hostname = "localhost";

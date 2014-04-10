@@ -17,8 +17,6 @@ mysql_query('SET NAMES utf8');
 //get funct
 include '../funct/funct.php';
 
-$getAllMonthCheck0 = 'getAllMonthCheck0';
-// $getAllMonthCheck1 = 'getAllMonthCheck1';
 ?>
 <!-- ссылка на выше -->
 <a href="../it.php">it</a><br>
@@ -43,9 +41,6 @@ $getAllMonthCheck0 = 'getAllMonthCheck0';
 	<input value="получить" type="submit">
 </form>
 <?
-//get data from form
-//do not worry, in 1-t print: error. how fix?
-@$monthCheck0 = $_POST['monthCheck0'];
 //get all the data from the month, shorted by date form low
 $get = mysql_query("select * from $ito where month = '$monthCheck0' and `check` = 0 order by date DESC");
 while($row = mysql_fetch_array($get)){

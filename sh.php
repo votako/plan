@@ -25,14 +25,29 @@ mysql_query('SET NAMES utf8');
 
 //get funct
 include 'funct/funct.php';
+
+// from $tableName where month = '$month' and date = '$getDate' and `check` = '$check' order by dateChange DESC limit 4
+// функция принимает 4 аргумента: отдел\месяц\дата\проверка. выводит данные на экран
+// +выводит коментШК по тем же аргументам
 $getDateCheck = 'getDateCheck';
+
+// from $tableName where `check` = 0 order by dateChange DESC limit 4
+// функция принимает только 1 аргумент: отдел. выводит данные на экран
+// не выводит комент от ШК(он есть в форме dep)
 $last = 'last';
 
+// form name = getAllOnDepartament
+// переменные для формы getAllOnDepartament
+// (выбор отдела, месяца, даты(выводится только после введения месяца) и проверки(да\нет(добавить проверено\нет\выполнено?)))
 @$getMonth = $_POST['getMonth'];
 @$getDate = $_POST['getDate'];
 @$getCheck = $_POST['getCheck'];
 @$getDepart = $_POST['getDepart'];
 
+// form name = dep 
+// переменные для формы dep(получение последнего добавленного(check = 0) плана)
+@$dep = $_POST['departament'];
+@$ShCommit = $_POST['ShCommit'];
 
 //remember selected departament
 session_start();
@@ -45,7 +60,7 @@ if (isset($_POST['getDepart'])) {
 }
 ?>
 <div class="get">
-	<form method="post" action="sh.php">
+	<form name="getAllOnDepartament" method="post" action="sh.php">
 	Отдел:
 		<select name="getDepart">
 			<?foreach ($depart as $value):?>
@@ -69,7 +84,7 @@ if (isset($_POST['getDepart'])) {
 		</select>
 	дата:
 		<select name="getDate"><?
-			$print = mysql_query("SELECT DISTINCT date FROM $getDepart where month = '$getMonth' ORDER BY dateChange ");
+			$print = mysql_query("SELECT DISTINCT date FROM $getDepart where month = '$getMonth' ORDER BY dateChange limit 5");
 			while($row = mysql_fetch_array($print)){
 				$date = $row['date'];
 				?><option value="<?echo $date?>" selected><?echo $date;
@@ -79,56 +94,69 @@ if (isset($_POST['getDepart'])) {
 	проверен?
 		<select name="getCheck">
 			<option value="0">нет
-			<option value="1">да
+			<option value="1" selected>да
 		</select>
-		<input value="получить" type="submit">
+		<input name="get" value="получить" type="submit">
+		<input name="clear" value="скрыть результаты" type="submit">
 	</form>
-	<form method="post" action="sh.php">
-		<input value="скрыть" type="submit">
-		<?mysql_query("select * from $getDepart where month = '13'");?>
-	</form>
+	<br><hr>
 	<form name="dep" action="#" method="post">
-		<input type="checkbox" name="departament" value="1">КомДир
-		<input type="checkbox" name="departament" value="2">Персонал
-		<input type="checkbox" name="departament" value="3">Розница
-		<input type="checkbox" name="departament" value="4">ДОС
-		<input type="checkbox" name="departament" value="5">АХС
-		<input type="checkbox" name="departament" value="6">Закупки
-		<input type="checkbox" name="departament" value="7">ИТо
-		<input value="получить свежайший план на завтрак" type="submit">
+		<select name="departament">
+			<option value="komdir">КомДир
+			<option value="personal">Персонал
+			<option value="roznica">Розница
+			<option value="doc">ДОС
+			<option value="ahs">АХС
+			<option value="zakupki">Закупки
+			<option value="ito" selected>ITo
+		</select>
+		<input name="depGet" value="получить свежайший план на завтрак" type="submit">
+		<br>
+		<textarea name='ShCommit' cols='49' rows='4'></textarea>
+		<input name="setCheck" value="проверено" type="submit">
 	</form>
 </div>
 <?
-//print all data
-$getDateCheck($getDepart, $getMonth, $getDate, $getCheck);
-switch (@$_POST['departament']) {
-	case '1':
-		$last('ito');
+	
+//выводит все планы согласно значениям введенным в форме dep+сброс поиска
+if(@$_POST['get']){
+	$getDateCheck($getDepart, $getMonth, $getDate, $getCheck);
+}else if(@$_POST['clear']){
+	mysql_query("select * from $getDepart where month = '13'");
+}
+// form name = dep обработчик событий для формы dep
+if(@$_POST['depGet']){
+	switch (@$_POST['departament']) {
+		case 'komdir':
+			$last('komdir');
 		break;
 
-	case '2':
-		echo "2";
+		case 'personal':
+			$last('personal');
 		break;
 
-	case '3':
-		echo "3";
+		case 'roznica':
+			$last('roznica');
 		break;
 	
-	case '4':
-		echo "3";
+		case 'doc':
+			$last('doc');
 		break;
 		
-	case '5':
-		echo "4";
+		case 'ahs':
+			$last('ahs');
 		break;
 
-	case '6':
-		echo "4";
+		case 'zakupki':
+			$last('zakupki');
 		break;
-
-	case '7':
-		echo "4";
+	
+		case 'ito':
+			$last('ito');
 		break;
+	}
+}else if(@$_POST['setCheck']){
+	mysql_query("UPDATE $dep SET `ShCommit` = '$ShCommit', `check` = 1 WHERE `check` = 0 ") or DIE(mysql_error());
 }
 //end of remember departament
 //close session when go to another page
