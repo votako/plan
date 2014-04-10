@@ -1,7 +1,0 @@
-схема:
-	вывод 2-х 
-=================
-получение данных:
-	по дате(?)	selecl * from tableOtdel where date=date??
-	по Отделу	selecl * from tableOtdel
-	за Дата получить все планы по Отделу	select * from tableOtdel where date=date?
