@@ -1,9 +1,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="cssGet.css">
-<a href="index.php"><img src="topol.png"></a>
-<a href="it.php"><img src="it.png"></a>
-<a href="sh.php"><img src="sh.png"></a>
-
+<link rel="stylesheet" type="text/css" href="style.css">
+<div align="center">
+	<a href="index.php"><img src="img/topol.png"></a>
+	<a href="it.php"><img src="img/it.png"></a>
+	<a href="sh.php"><img src="img/sh.png"></a>
+	<a href="test.php"><img src="img/test.png"></a>
+</div>
 <?
 // данные для подключения к БД
 $hostname = "localhost";
@@ -51,7 +53,7 @@ if($pwd == 1){
 	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('3', '$hightIn3', '$middleIn3', '$lowIn3', '$otherIn3', '$date', '$month', '$year')") or die(mysql_error());
 	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('4', '$hightIn4', '$middleIn4', '$lowIn4', '$otherIn4', '$date', '$month', '$year')") or die(mysql_error());
 	
-	echo "<a href='it.php'><img src="?>carousel_back_button.gif<?">назад</a><br>";
+	echo "<a href='it.php'><img src="?>img/carousel_back_button.gif<?">назад</a><br>";
 	// вывод на экран добавлений согласно сегодняшней дате
 	$print = mysql_query("SELECT hight, middle, low, other, date FROM $tableName WHERE date='$date'");
 	while($row = mysql_fetch_array($print)){

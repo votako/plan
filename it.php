@@ -2,14 +2,16 @@
 <head>
 <!-- 	подключение css и установка кодировки. в базе данных  -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="cssGet.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <title>Планы</title>
 </head>
 <body>
-<a href="index.php"><img src="topol.png"></a>
-<a href="it.php"><img src="it.png"></a>
-<a href="sh.php"><img src="sh.png"></a>
-<a href="test.php"><img src="test.png"></a>
+<div align="center">
+	<a href="index.php"><img src="img/topol.png"></a>
+	<a href="it.php"><img src="img/it.png"></a>
+	<a href="sh.php"><img src="img/sh.png"></a>
+	<a href="test.php"><img src="img/test.png"></a>
+</div>
 <?
 // данные для подключения к БД
 $hostname = "localhost";
@@ -59,16 +61,17 @@ $getDateCheck = 'getDateCheck';
 			}
 			?>
 		</select>
-		<input value="получить" type="submit">
-	</form>
-	<form method="post" action="it.php">
-		<input value="скрыть" type="submit">
-		<?mysql_query("select * from $ito where month = '13'");?>
+		<input name="get" value="получить" type="submit">
+		<input name="clear" value="скрыть" type="submit">
 	</form>
 </div>
 <?
 //get data from form and echo on display, ONLY CHECK==0!!!
-$getDateCheck($ito, $getMonth, $getDate, '0');
+if(@$_POST['get']){
+	$getDateCheck($ito, $getMonth, $getDate, '0');
+}else if(@$_POST['clear']){
+	mysql_query("select * from $ito where month = '13'");
+}
 ?>
 <hr>
 <!-- форма добавления плана -->

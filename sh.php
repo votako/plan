@@ -2,13 +2,16 @@
 <head>
 <!-- 	подключение css и установка кодировки. в базе данных  -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="cssGet.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <title>Планы</title>
 </head>
 <body>
-<a href="index.php"><img src="topol.png"></a>
-<a href="it.php"><img src="it.png"></a>
-<a href="sh.php"><img src="sh.png"></a>
+<div align="center">
+	<a href="index.php"><img src="img/topol.png"></a>
+	<a href="it.php"><img src="img/it.png"></a>
+	<a href="sh.php"><img src="img/sh.png"></a>
+	<a href="test.php"><img src="img/test.png"></a>
+</div>
 <?
 // данные для подключения к БД
 $hostname = "localhost";

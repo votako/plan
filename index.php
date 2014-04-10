@@ -31,7 +31,7 @@ if ($Password == '1'){
 	<body>
 		<form name="form" action="index.php">
 			<div class="main">
-				<a href="http://www.topolyok.com.ua"><img src="topol.png"></a>
+				<a href="http://www.topolyok.com.ua"><img src="img/topol.png"></a>
 			<div class="inn">
 				<FONT face="Comic Sans MS">Введите пароль:</FONT>
 				<br><br> 
