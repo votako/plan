@@ -20,5 +20,16 @@ mysql_select_db($dbName) or die(mysql_error());
 //для записи в БД русских символов и корректного их отображения.
 mysql_query('SET NAMES utf8');
 // подключено
-
+$getId1 = mysql_query("select hight, middle, low, other from ito where date = '1-1' and `check` = 0 and id = 1") or die(mysql_error());
+while($row = @mysql_fetch_array($getId1)){
+	$hight1 = $row['hight'];
+}
+@$out = $_POST['test'];
+if(@$_POST['ok']){
+	mysql_query("update ito set hight = '$out' where date = '1-1' and `check` = 0 and id =1");
+}
 ?>
+<form action="#" method="post">
+	<textarea name='test' cols='49' rows='4'><?echo @$hight?></textarea>
+	<input name="ok" value="изменить" type="submit">
+</form>

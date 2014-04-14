@@ -29,7 +29,12 @@ mysql_query('SET NAMES utf8');
 
 //get funct
 include 'funct/funct.php';
+
+// from $tableName where month = '$month' and date = '$getDate' and `check` = '$check' order by dateChange DESC limit 4
+// функция принимает 4 аргумента: отдел\месяц\дата\проверка. выводит данные на экран
+// +выводит коментШК по тем же аргументам
 $getDateCheck = 'getDateCheck';
+
 //do not worry, in 1-t print: error. fix = @(display error==0)
 @$getMonth = $_POST['getMonth'];
 @$getDate = $_POST['getDate'];
@@ -39,6 +44,7 @@ $getDateCheck = 'getDateCheck';
 	<form method="post" action="it.php">
 	Проверенные планы за месяц:
 		<select name="getMonth">
+			<option value="00">00
 			<option value="01">01
 			<option value="02">02
 			<option value="03">03
@@ -108,24 +114,15 @@ if(@$_POST['get']){
 			</div>
 		</div>
 		<!-- 		ввод данных разбит на важности. от высокой к низкой	 -->
-		<div class=hight>	
+		<div class=hight>
 			<div class="text"><b>СверхВажно и СверхСрочно</b></div>
 			<div class=hightIn>
-				<textarea name="hightIn1" cols="41" rows="10"></textarea>
-			</div>
+				<textarea name="hightIn1" cols="41" rows="10"><?echo @$hight1?></textarea>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=hightIn>
 				<textarea name="hightIn2" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=hightIn>
 				<textarea name="hightIn3" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=hightIn>
 				<textarea name="hightIn4" cols="41" rows="10"></textarea>
 			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
@@ -135,43 +132,25 @@ if(@$_POST['get']){
 			<div class="text"><b>Важно и Срочно</b></div>
 			<div class=middleIn>
 				<textarea name="middleIn1" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=middleIn>
 				<textarea name="middleIn2" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=middleIn>
 				<textarea name="middleIn3" cols="41" rows="10"></textarea>
-			</div>
 	<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=middleIn>
 				<textarea name="middleIn4" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+			</div>
 		</div>
 					
 		<div class=low>
 			<div class="text"><b>Срочно </b>но НеВажно</div>
 			<div class=lowIn>
 				<textarea name="lowIn1" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=lowIn>
 				<textarea name="lowIn2" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=lowIn>
 				<textarea name="lowIn3" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=lowIn>
 				<textarea name="lowIn4" cols="41" rows="10"></textarea>
 			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
@@ -181,20 +160,11 @@ if(@$_POST['get']){
 			<div class="text"><b>Важно </b>но НеСрочно</div>
 			<div class=otherIn>
 				<textarea name="otherIn1" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=otherIn>
 				<textarea name="otherIn2" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-						
-			<div class=otherIn>
 				<textarea name="otherIn3" cols="41" rows="10"></textarea>
-			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
-					
-			<div class=otherIn>
 				<textarea name="otherIn4" cols="41" rows="10"></textarea>
 			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
