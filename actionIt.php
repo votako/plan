@@ -72,25 +72,21 @@ if($pwd == 1){
 				<div class='hightIn'>
 					<textarea name='hightIn' cols='41' rows='11'><?echo $hight?></textarea>
 				</div>
-<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
 			</div>
 			<div class='middle'>
 				<div class='middleIn'>
 					<textarea name='middleIn' cols='41' rows='11'><? echo $middle?></textarea>
 				</div>
-<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
 			</div>
 			<div class='low'>
 				<div class='lowIn'>
 					<textarea name='lowIn' cols='41' rows='11'><? echo $low?></textarea>
 				</div>
-<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
 			</div>
 			<div class='other'>
 				<div class='otherIn'>
 					<textarea name='otherIn' cols='41' rows='11'><?echo $other?></textarea>
 				</div>
-<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
 			</div>
 		</div>
 		</div>

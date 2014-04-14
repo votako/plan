@@ -11,7 +11,6 @@ function getDateCheck($tableName = '', $month = '', $getDate = '', $check = ''){
 	while($row = @mysql_fetch_array($getId1)){
 // 		$date = $row['date'];
 // 		$month = $row['month'];
-		global $hight1;
 		$hight1 = $row['hight'];
 		$doneH1 = $row['doneH'];
 		
@@ -185,6 +184,100 @@ function last($tableName){
 		<?
 	}
 	echo "<b>".@$date.".".@$month."</b>";
+}
+
+function form(){
+?>
+	<form method="post" action="actionIt.php">
+	<div class=main>
+		<div class=head>
+			<div align="center">
+				<FONT face="Comic Sans MS">Внутренний журнал обработки поступающих указаний</FONT> <br>
+				дата: с-по
+				<textarea name="date" cols="11" rows="1"></textarea>
+				месяц:
+				<select name="month">
+					<option value="01">01
+					<option value="02">02
+					<option value="03">03
+					<option value="04">04
+					<option value="05">05
+					<option value="06">06
+					<option value="07">07
+					<option value="08">08
+					<option value="09">09
+					<option value="10">10
+					<option value="11">11
+					<option value="12">12
+				</select>
+						
+				<select name="year">
+					<option value="2014">2014
+					<option value="2015">2015
+				</select>
+				пароль
+				<input type="password" name="pwd" value="">
+				<input value="Добавить запись" type="submit">
+			</div>
+		</div>
+		<!-- 		ввод данных разбит на важности. от высокой к низкой	 -->
+		<div class=hight>
+			<div class="text"><b>СверхВажно и СверхСрочно</b></div>
+			<div class=hightIn>
+				<textarea name="hightIn1" cols="41" rows="10"><?echo @$hight1?></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="hightIn2" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="hightIn3" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="hightIn4" cols="41" rows="10"></textarea>
+			</div>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+		</div>
+					
+		<div class=middle>
+			<div class="text"><b>Важно и Срочно</b></div>
+			<div class=middleIn>
+				<textarea name="middleIn1" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="middleIn2" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="middleIn3" cols="41" rows="10"></textarea>
+	<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="middleIn4" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+			</div>
+		</div>
+					
+		<div class=low>
+			<div class="text"><b>Срочно </b>но НеВажно</div>
+			<div class=lowIn>
+				<textarea name="lowIn1" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="lowIn2" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="lowIn3" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="lowIn4" cols="41" rows="10"></textarea>
+			</div>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+		</div>
+					
+		<div class=other>
+			<div class="text"><b>Важно </b>но НеСрочно</div>
+			<div class=otherIn>
+				<textarea name="otherIn1" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="otherIn2" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="otherIn3" cols="41" rows="10"></textarea>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+				<textarea name="otherIn4" cols="41" rows="10"></textarea>
+			</div>
+		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+		</div>
+	</div>
+</form><?
 }
 
 ?>
