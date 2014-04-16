@@ -11,6 +11,7 @@
 	<a href="it.php"><img src="img/it.png"></a>
 	<a href="sh.php"><img src="img/sh.png"></a>
 	<a href="test.php"><img src="img/test.png"></a>
+	<a href="funct.php"><img src="img/function_90x90.png"></a>
 </div>
 <?
 // данные для подключения к БД
@@ -29,23 +30,26 @@ mysql_query('SET NAMES utf8');
 
 
 //get funct
-include 'funct/funct.php';
-
+include 'funct.php';
+// include 'test.php';
 // from $tableName where month = '$month' and date = '$getDate' and `check` = '$check' order by dateChange DESC limit 4
 // функция принимает 4 аргумента: отдел\месяц\дата\проверка. выводит данные на экран
 // +выводит коментШК по тем же аргументам
 $getDateCheck = 'getDateCheck';
 $form = 'form';
+
+// $test = 'test';
 //do not worry, in 1-t print: error. fix = @(display error==0)
 @$getMonth = $_POST['getMonth'];
 @$getDate = $_POST['getDate'];
+
 ?>
 <!-- форма ввода данных для поиска в mysql и вывода на экран -->
 <div class="get">
 	<form method="post" action="it.php">
 	Проверенные планы за месяц:
 		<select name="getMonth">
-			<option value="00">00
+			<option value="00">заготовка
 			<option value="01">01
 			<option value="02">02
 			<option value="03">03
@@ -70,6 +74,9 @@ $form = 'form';
 		</select>
 		<input name="get" value="получить" type="submit">
 		<input name="clear" value="скрыть" type="submit">
+<!-- 	</form> -->
+<!-- 	<form method="post" action="#"> -->
+		<input name="create" value="create" type="submit">
 	</form>
 </div>
 <?
@@ -79,10 +86,9 @@ if(@$_POST['get']){
 }else if(@$_POST['clear']){
 	mysql_query("select * from $ito where month = '13'");
 }
-
-// <hr>
+echo "<hr>";
+$form($ito);
 // <!-- форма добавления плана -->
-$form();
 ?>
 </body>
 </html>

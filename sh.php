@@ -11,6 +11,7 @@
 	<a href="it.php"><img src="img/it.png"></a>
 	<a href="sh.php"><img src="img/sh.png"></a>
 	<a href="test.php"><img src="img/test.png"></a>
+	<a href="funct.php"><img src="img/function_90x90.png"></a>
 </div>
 <?
 // данные для подключения к БД
@@ -27,7 +28,7 @@ mysql_query('SET NAMES utf8');
 // подключено
 
 //get funct
-include 'funct/funct.php';
+include 'funct.php';
 
 // from $tableName where month = '$month' and date = '$getDate' and `check` = '$check' order by dateChange DESC limit 4
 // функция принимает 4 аргумента: отдел\месяц\дата\проверка. выводит данные на экран

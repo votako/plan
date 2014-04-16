@@ -5,6 +5,7 @@
 	<a href="it.php"><img src="img/it.png"></a>
 	<a href="sh.php"><img src="img/sh.png"></a>
 	<a href="test.php"><img src="img/test.png"></a>
+	<a href="funct.php"><img src="img/function_90x90.png"></a>
 </div>
 <?
 // данные для подключения к БД
