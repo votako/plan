@@ -1,16 +1,16 @@
 <?
 // данные для подключения к БД
-$hostname = "localhost";
-$username = "root";
-$password = "NIAP637";
-$dbName = "plan";
-$table = "ito";
+// $hostname = "localhost";
+// $username = "root";
+// $password = "NIAP637";
+// $dbName = "plan";
+// $table = "ito";
 
 //подключение к SQL и DB
-mysql_connect($hostname, $username, $password) or die(mysql_error());
-mysql_select_db($dbName) or die(mysql_error());
+// mysql_connect($hostname, $username, $password) or die(mysql_error());
+// mysql_select_db($dbName) or die(mysql_error());
 //для записи в БД русских символов и корректного их отображения.
-mysql_query('SET NAMES utf8');
+// mysql_query('SET NAMES utf8');
 // подключено
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++

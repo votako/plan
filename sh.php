@@ -88,8 +88,8 @@ if (isset($_POST['getDepart'])) {
 		</select>
 	проверен?
 		<select name="getCheck">
-			<option value="0">нет
-			<option value="1" selected>да
+			<option value="1">нет
+			<option value="2" selected>да
 		</select>
 		<input name="get" value="получить" type="submit">
 		<input name="clear" value="скрыть результаты" type="submit">
@@ -131,37 +131,37 @@ while($raw = @mysql_fetch_array($test)){
 if(@$_POST['depGet']){
 	switch (@$_POST['departament']) {
 		case 'komdir':
-			$getDateCheck('komdir', $dbMonth, $dbDate, '1');
+			$getDateCheck('komdir', @$dbMonth, @$dbDate, '1');
 // 			$last('komdir');
 		break;
 
 		case 'personal':
-			$getDateCheck('personal', $dbMonth, $dbDate, '1');
+			$getDateCheck('personal', @$dbMonth, @$dbDate, '1');
 // 			$last('personal');
 		break;
 
 		case 'roznica':
-			$getDateCheck('roznica', $dbMonth, $dbDate, '1');
+			$getDateCheck('roznica', @$dbMonth, @$dbDate, '1');
 // 			$last('roznica');
 		break;
 	
 		case 'doc':
-			$getDateCheck('doc', $dbMonth, $dbDate, '1');
+			$getDateCheck('doc', @$dbMonth, @$dbDate, '1');
 // 			$last('doc');
 		break;
 		
 		case 'ahs':
-			$getDateCheck('ahs', $dbMonth, $dbDate, '1');
+			$getDateCheck('ahs', @$dbMonth, @$dbDate, '1');
 // 			$last('ahs');
 		break;
 
 		case 'zakupki':
-			$getDateCheck('zakupki', $dbMonth, $dbDate, '1');
+			$getDateCheck('zakupki', @$dbMonth, @$dbDate, '1');
 // 			$last('zakupki');
 		break;
 	
 		case 'ito':
-			$getDateCheck('ito', $dbMonth, $dbDate, '1');
+			$getDateCheck('ito', @$dbMonth, @$dbDate, '1');
 // 			$last('ito');
 		break;
 	}
