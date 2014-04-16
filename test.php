@@ -7,6 +7,7 @@
 	<a href="sh.php"><img src="img/sh.png"></a>
 	<a href="test.php"><img src="img/test.png"></a>
 	<a href="funct.php"><img src="img/function_90x90.png"></a>
+	<a href="form.php"><img src="img/form.png"></a>
 </div>
 <?
 // данные для подключения к БД
@@ -22,16 +23,7 @@ mysql_select_db($dbName) or die(mysql_error());
 //для записи в БД русских символов и корректного их отображения.
 mysql_query('SET NAMES utf8');
 // подключено
-
-$get = mysql_query("select hight from ito where `check` = 0 and id = 1");
-while($row = mysql_fetch_array($get)){
-	$one = $row['hight'];
+function test(){
+	
 }
-
-
-	echo $one;
-function funct(){
-// 	global $one;
-}
-// funct();
 ?>

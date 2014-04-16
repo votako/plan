@@ -12,6 +12,7 @@
 	<a href="sh.php"><img src="img/sh.png"></a>
 	<a href="test.php"><img src="img/test.png"></a>
 	<a href="funct.php"><img src="img/function_90x90.png"></a>
+	<a href="form.php"><img src="img/form.png"></a>
 </div>
 <?
 // данные для подключения к БД
@@ -29,6 +30,9 @@ mysql_query('SET NAMES utf8');
 
 //get funct
 include 'funct.php';
+
+// 
+$getMon = 'getMonth';
 
 // from $tableName where month = '$month' and date = '$getDate' and `check` = '$check' order by dateChange DESC limit 4
 // функция принимает 4 аргумента: отдел\месяц\дата\проверка. выводит данные на экран
@@ -49,12 +53,12 @@ $last = 'last';
 @$getDepart = $_POST['getDepart'];
 
 // form name = dep 
-// переменные для формы dep(получение последнего добавленного(check = 0) плана)
+// переменные для формы dep(получение последнего добавленного(check = 1) плана)
 @$dep = $_POST['departament'];
 @$ShCommit = $_POST['ShCommit'];
 
 //remember selected departament
-session_start();
+// session_start(); in funct.php in getMonth()
 $depart = array('komdir', 'personal', 'roznica', 'doc', 'ahs', 'zakupki', 'ito');
 if (isset($_POST['getDepart'])) {
 	$key = array_search($_POST['getDepart'], $depart);
@@ -72,20 +76,7 @@ if (isset($_POST['getDepart'])) {
 			<?endforeach; ?> 
 		</select>
 	Планы за месяц:
-		<select name="getMonth">
-			<option value="01">01
-			<option value="02">02
-			<option value="03">03
-			<option value="04">04
-			<option value="05">05
-			<option value="06">06
-			<option value="07">07
-			<option value="08">08
-			<option value="09">09
-			<option value="10">10
-			<option value="11">11
-			<option value="12">12
-		</select>
+		<?$getMon();?>
 	дата:
 		<select name="getDate"><?
 			$print = mysql_query("SELECT DISTINCT date FROM $getDepart where month = '$getMonth' ORDER BY dateChange limit 5");
@@ -128,41 +119,56 @@ if(@$_POST['get']){
 }else if(@$_POST['clear']){
 	mysql_query("select * from $getDepart where month = '13'");
 }
+
+// получаем дату и месяц из запроса(нужно для вывода последних данных)
+@$dep = $_POST['departament'];
+$test = mysql_query("select date, month from $dep where `check` = 1");
+while($raw = @mysql_fetch_array($test)){
+	$dbDate = $raw['date'];
+	$dbMonth = $raw['month'];
+}
 // form name = dep обработчик событий для формы dep
 if(@$_POST['depGet']){
 	switch (@$_POST['departament']) {
 		case 'komdir':
-			$last('komdir');
+			$getDateCheck('komdir', $dbMonth, $dbDate, '1');
+// 			$last('komdir');
 		break;
 
 		case 'personal':
-			$last('personal');
+			$getDateCheck('personal', $dbMonth, $dbDate, '1');
+// 			$last('personal');
 		break;
 
 		case 'roznica':
-			$last('roznica');
+			$getDateCheck('roznica', $dbMonth, $dbDate, '1');
+// 			$last('roznica');
 		break;
 	
 		case 'doc':
-			$last('doc');
+			$getDateCheck('doc', $dbMonth, $dbDate, '1');
+// 			$last('doc');
 		break;
 		
 		case 'ahs':
-			$last('ahs');
+			$getDateCheck('ahs', $dbMonth, $dbDate, '1');
+// 			$last('ahs');
 		break;
 
 		case 'zakupki':
-			$last('zakupki');
+			$getDateCheck('zakupki', $dbMonth, $dbDate, '1');
+// 			$last('zakupki');
 		break;
 	
 		case 'ito':
-			$last('ito');
+			$getDateCheck('ito', $dbMonth, $dbDate, '1');
+// 			$last('ito');
 		break;
 	}
 }else if(@$_POST['setCheck']){
-	mysql_query("UPDATE $dep SET `ShCommit` = '$ShCommit', `check` = 1 WHERE `check` = 0 ") or DIE(mysql_error());
+	mysql_query("UPDATE $dep SET `ShCommit` = '$ShCommit', `check` = 2 WHERE `check` = 1 ") or DIE(mysql_error());
 }
 //end of remember departament
 //close session when go to another page
-session_unset();
+// session_unset();
 ?>
