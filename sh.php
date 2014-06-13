@@ -16,11 +16,7 @@
 </div>
 <?
 // данные для подключения к БД
-$hostname = "localhost";
-$username = "root";
-$password = "NIAP637";
-$dbName = "plan";
-
+include 'sql.php';
 //подключение к SQL и DB
 mysql_connect($hostname, $username, $password) or die(mysql_error());
 mysql_select_db($dbName) or die(mysql_error());

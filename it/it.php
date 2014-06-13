@@ -2,21 +2,21 @@
 <head>
 <!-- 	подключение css и установка кодировки. в базе данных  -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="../style.css">
 <title>Планы</title>
 </head>
 <body>
 <div align="center">
-	<a href="index.php"><img src="img/topol.png"></a>
-	<a href="it.php"><img src="img/it.png"></a>
-	<a href="sh.php"><img src="img/sh.png"></a>
-	<a href="test.php"><img src="img/test.png"></a>
-	<a href="funct.php"><img src="img/function_90x90.png"></a>
-	<a href="form.php"><img src="img/form.png"></a>
+	<a href="../index.php"><img src="../img/topol.png"></a>
+	<a href="it.php"><img src="../img/it.png"></a>
+	<a href="../sh.php"><img src="../img/sh.png"></a>
+	<a href="../test.php"><img src="../img/test.png"></a>
+	<a href="../funct.php"><img src="../img/function_90x90.png"></a>
+	<a href="../form.php"><img src="../img/form.png"></a>
 </div>
 <?
 // данные для подключения к БД
-include 'sql.php';
+include '../sql.php';
 $ito = "ito";
 
 //подключение к SQL и DB
@@ -28,7 +28,7 @@ mysql_query('SET NAMES utf8');
 
 
 //get funct
-include 'funct.php';
+include '../funct.php';
 
 // from $tableName where month = '$month' and date = '$getDate' and `check` = '$check' order by dateChange DESC limit 4
 // функция принимает 4 аргумента: отдел\месяц\дата\проверка. выводит данные на экран

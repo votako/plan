@@ -9,7 +9,7 @@
 </div>
 <?
 // данные для подключения к БД
-include 'sql.php';
+include '../sql.php';
 $tableName = "ito";
 
 //подключение к SQL и DB
@@ -18,7 +18,6 @@ mysql_select_db($dbName) or die("no connect to DB");
 mysql_query('SET NAMES utf8');
 // подключено
 
-// проверяем переменную пароль, из формы(какой?)
 $pwd = $_POST['pwd'];
 if($pwd == 1){
 	// дата(сегодня)

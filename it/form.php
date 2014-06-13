@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?
 // данные для подключения к БД
-include 'sql.php';
+include '../sql.php';
 $table = "ito";
 
 //подключение к SQL и DB
@@ -133,11 +133,11 @@ if(mysql_result($date, 0) != 0){
 			<div class="text"><b>СверхВажно и СверхСрочно</b></div>
 			<div class=columIn>
 				<textarea name="hightIn1" cols="41" rows="10"><?echo @$getHight1?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="hightIn2" cols="41" rows="10"><?echo @$getHight2?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="hightIn3" cols="41" rows="10"><?echo @$getHight3?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="hightIn4" cols="41" rows="10"><?echo @$getHight4?></textarea>
 			</div>
 		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
@@ -147,13 +147,13 @@ if(mysql_result($date, 0) != 0){
 			<div class="text"><b>Важно и Срочно</b></div>
 			<div class=columIn>
 				<textarea name="middleIn1" cols="41" rows="10"><?echo @$getMiddle1?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="middleIn2" cols="41" rows="10"><?echo @$getMiddle2?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="middleIn3" cols="41" rows="10"><?echo @$getMiddle3?></textarea>
-	<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+					<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="middleIn4" cols="41" rows="10"><?echo @$getMiddle4?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 			</div>
 		</div>
 					
@@ -161,28 +161,28 @@ if(mysql_result($date, 0) != 0){
 			<div class="text"><b>Срочно </b>но НеВажно</div>
 			<div class=columIn>
 				<textarea name="lowIn1" cols="41" rows="10"><?echo @$getLow1?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="lowIn2" cols="41" rows="10"><?echo @$getLow2?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="lowIn3" cols="41" rows="10"><?echo @$getLow3?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="lowIn4" cols="41" rows="10"><?echo @$getLow4?></textarea>
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 			</div>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
 		</div>
 					
 		<div class=colum>
 			<div class="text"><b>Важно </b>но НеСрочно</div>
 			<div class=columIn>
 				<textarea name="otherIn1" cols="41" rows="10"><?echo @$getOther1?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="otherIn2" cols="41" rows="10"><?echo @$getOther2?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="otherIn3" cols="41" rows="10"><?echo @$getOther3?></textarea>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 				<textarea name="otherIn4" cols="41" rows="10"><?echo @$getOther4?></textarea>
+						<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div>
 			</div>
-		<!-- 				<div class=footer>Вып\НеВып (чекБоксЛибо%Выполнения)</div> -->
 		</div>
 	</div>
 </form>
