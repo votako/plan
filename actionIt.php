@@ -25,38 +25,20 @@ if($pwd == 1){
 	$date = $_POST['date'];
 	$month = $_POST['month'];
 	$year = $_POST['year'];
-	// значения из формы ввода планов.
-	$hightIn1 = $_POST['hightIn1'];
-	$hightIn2 = $_POST['hightIn2'];
-	$hightIn3 = $_POST['hightIn3'];
-	$hightIn4 = $_POST['hightIn4'];
-
-	$middleIn1 = $_POST['middleIn1'];
-	$middleIn2 = $_POST['middleIn2'];
-	$middleIn3 = $_POST['middleIn3'];
-	$middleIn4 = $_POST['middleIn4'];
-
-	$lowIn1 = $_POST['lowIn1'];
-	$lowIn2 = $_POST['lowIn2'];
-	$lowIn3 = $_POST['lowIn3'];
-	$lowIn4 = $_POST['lowIn4'];
-
-	$otherIn1 = $_POST['otherIn1'];
-	$otherIn2 = $_POST['otherIn2'];
-	$otherIn3 = $_POST['otherIn3'];
-	$otherIn4 = $_POST['otherIn4'];
-
-	// добавления в БД значений из формы ввода данных с датой.
-	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('1', '$hightIn1', '$middleIn1', '$lowIn1', '$otherIn1', '$date', '$month', '$year')") or die(mysql_error());
-	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('2', '$hightIn2', '$middleIn2', '$lowIn2', '$otherIn2', '$date', '$month', '$year')") or die(mysql_error());
-	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('3', '$hightIn3', '$middleIn3', '$lowIn3', '$otherIn3', '$date', '$month', '$year')") or die(mysql_error());
-	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('4', '$hightIn4', '$middleIn4', '$lowIn4', '$otherIn4', '$date', '$month', '$year')") or die(mysql_error());
-	
+	// значения из формы ввода планов циклом записывает в базу
+	for(i=1; i<5; i++){
+		$hightIn.$i = $_POST['hightIn'.$i];
+		$middleIn.$i = $_POST['middleIn1'.$i];
+		$lowIn.$i = $_POST['lowIn1'.$i];
+		$otherIn.$i = $_POST['otherIn1'.$i];
+		// добавления в БД значений из формы ввода данных с датой.
+	mysql_query("INSERT INTO $tableName(id, hight, middle, low, other, date, month, year) VALUES ('$i', '$hightIn.$i', '$middleIn.$i', '$lowIn.$i', '$otherIn.$i', '$date', '$month', '$year')") or die(mysql_error());
+	}
 	echo "<a href='it.php'><img src="?>img/carousel_back_button.gif<?">назад</a><br>";
 	// вывод на экран добавлений согласно сегодняшней дате
 	$print = mysql_query("SELECT hight, middle, low, other, date FROM $tableName WHERE date='$date'");
 	while($row = mysql_fetch_array($print)){
-	// 	переменные в нормальном виде существует только внутри цикла while(????)
+	// 	переменные в нормальном виде существует только внутри цикла while(????)yes
 		$hight = $row['hight'];
 		$middle = $row['middle'];
 		$low = $row['low'];
